@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    aside {
+        width: 250px;
+        box-shadow: 0px 0px 9px lightgray;
+        float: left;
+        padding: 10px;
+    }
+    .pic-image {
+      background-color: #cccccc;
+      height: 300px;
+      width: 1000px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+    .pic-text {
+      text-align: left;
+      position: absolute;
+      top: 90%;
+      left: 5%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 表頭 -->
+    <div>
+        <a href="https://www.lufthansaholidays.com/en-de">
+            <img alt="dropdown icon" width="40" src="../../assets/icons/Lufthansa Logo.png">
+        </a>
+        <a href="https://www.lufthansaholidays.com/en-de">
+            <img alt="dropdown icon" width="300" src="../../assets/icons/Lufthansa.png">
+        </a>
+        <i class="pi pi-phone" style="font-size: 1.5rem"></i>
+        <i>+49 (0) 7221 / 96 90 300</i>
+        <i class="pi pi-heart-fill" style="font-size: 1.5rem"></i>
+        <img alt="dropdown icon" width="40" src="../../assets/icons/Germany.png">
+    </div>
+
+    <!-- 選單 -->
+    <div class="card">
+        <p-megaMenu [model]="items"></p-megaMenu>
+    </div>
+
+
+    <!-- 機加酒選單 -->
+    <div class="formgroup-inline"
+        style='background-color:rgb(7, 29, 73); height:70px; width:1200px ;padding:10px;margin-bottom:5px;'>
+
+        <!-- Departure Airport -->
+        <p-treeSelect class="w-full md:w-20rem" containerStyleClass="w-full" [(ngModel)]="selectedNodes"
+            [options]="nodes" [metaKeySelection]="false" selectionMode="multiple" placeholder="Departure Airport">
+        </p-treeSelect>
+
+        <!-- Destination and Hotel -->
+        <p-multiSelect [options]="groupedCities" [group]="true" [(ngModel)]="selectedCities"
+            placeholder="Destination and Hotel" scrollHeight="250px" display="chip">
+            <ng-template let-group pTemplate="group">
+                <div class="flex align-items-center">
+                    <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                        [class]="'mr-2 flag flag-' + group.value" style="width: 20px" />
+                    <span>{{ group.label }}</span>
+                </div>
+            </ng-template>
+        </p-multiSelect>
+
+        <!-- Date Range -->
+        <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"
+            placeholder="Travel Dates"></p-calendar>
+
+        <!-- count of customer-->
+        <p-overlayPanel #op>
+            <ng-template pTemplate="content">
+                <div>
+                    <label class="mb-2 block font-bold" for="children">children</label>
+                    <p-inputNumber [(ngModel)]="children" [style]="{'width': '4rem'}" [showButtons]="true"
+                        buttonLayout="horizontal" spinnerMode="horizontal" inputId="children"
+                        decrementButtonClass="p-button-primary" incrementButtonClass="p-button-primary"
+                        incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+                </div>
+                <div>
+                    <label class="mb-2 block font-bold" for="adult">adult</label>
+                    <p-inputNumber [(ngModel)]="adult" [style]="{'width': '4rem'}" [showButtons]="true"
+                        buttonLayout="horizontal" spinnerMode="horizontal" inputId="adult"
+                        decrementButtonClass="p-button-primary" incrementButtonClass="p-button-primary"
+                        incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+                </div>
+
+            </ng-template>
+        </p-overlayPanel>
+        <p-inputNumber [(ngModel)]="total" inputId="travellers" suffix=" people"> </p-inputNumber>
+        <p-button (click)="op.toggle($event)" label="Travellers"></p-button>
+
+
+    </div>
+
+
+    <!-- 搜尋篩選＆結果 -->
+    <div>
+        <!-- 搜尋篩選 -->
+        <aside>
+            <h2>Budget per person:</h2>
+            <div class="card flex justify-content-center">
+                <div>
+                    <input type="text" pInputText [(ngModel)]="Budget" class="w-full" />
+                    <p-slider [(ngModel)]="Budget" class="w-full"></p-slider>
+                    <h4 style="float: left;">50&nbsp;€</h4>
+                    <h4 style="float: right;">No Limit</h4>
+                </div>
+            </div>
+            <h2>Holiday Check: min</h2>
+            <div class="card flex justify-content-center">
+                <div>
+                    <input type="text" pInputText [(ngModel)]="Check" class="w-full" />
+                    <p-slider [(ngModel)]="Check" class="w-full"></p-slider>
+                    <h4 style="float: left;">0%</h4>
+                    <h4 style="float: right;">100%</h4>
+                </div>
+            </div>
+            <h2>Hotel category: min</h2>
+            <div class="card flex justify-content-center">
+                <p-rating [(ngModel)]="stars" [cancel]="false"></p-rating>
+            </div>
+            <!-- Amenities -->
+            <h2>Amenities</h2>
+            <div class="card flex justify-content-center">
+                <div class="flex flex-column gap-2">
+                    <div *ngFor="let category of categories" class="field-checkbox">
+                        <p-checkbox name="group" [value]="category" [(ngModel)]="selectedCategories"
+                            [inputId]="category.key"></p-checkbox>
+                        <label [for]="category.key">{{ category.name }}</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Board Type -->
+            <h2>Board Type</h2>
+            <div class="card flex justify-content-center">
+                <div class="flex flex-column gap-2">
+                    <div *ngFor="let category of categories" class="field-checkbox">
+                        <p-checkbox name="group" [value]="category" [(ngModel)]="selectedCategories"
+                            [inputId]="category.key"></p-checkbox>
+                        <label [for]="category.key">{{ category.name }}</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Room type -->
+            <h2>Room type</h2>
+            <div class="card flex justify-content-center">
+                <div class="flex flex-column gap-2">
+                    <div *ngFor="let category of categories" class="field-checkbox">
+                        <p-checkbox name="group" [value]="category" [(ngModel)]="selectedCategories"
+                            [inputId]="category.key"></p-checkbox>
+                        <label [for]="category.key">{{ category.name }}</label>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+        <!--搜尋結果 -->
+        <div class="justify-content-center" style="float:inline-start">
+            <!-- 搜尋筆數＆順序 -->
+            <div class="formgroup-inline" style="border-bottom: 4px solid #ebebeb;">
+                <h2>10356 Offers</h2>
+                <h4>Sort by: </h4>
+                <p-dropdown [options]="orderType" [(ngModel)]="selectOrder" optionLabel="name"></p-dropdown>
+            </div>
+            <!-- 照片 -->
+            <div class="pic-image" style="background-image: url('https://lufthansaholidays.wavecdn.net/icmphotels/hlx/960_638/1692176164_IBZ203B_NEU_01.jpg');" >
+                <div class="pic-text">
+                    <h1>Spain</h1>
+                </div>
+            </div>
+            <!-- 搜尋結果 -->
+            <div class="card">
+                <p-table [value]="products" [tableStyle]="{'min-width': '50rem', 'height':'20rem'}">
+                    <ng-template pTemplate="header">
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <td style="font-weight:bold">{{ product.name }}</td>
+                            <td>{{ product.rating }} nights</td>
+                            <td>{{ product.quantity }} hotels</td>
+                            <td>per person from {{ product.price }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <!-- 照片 -->
+            <div class="pic-image" style="background-image: url('https://images.contentstack.io/v3/assets/bltcca151492e233b5c/blt9778b488b30a94f9/5f748b96e556a23a5532fc38/Italia_iStock-539115110.jpg?auto=webp&format=pjpg&quality=80&width=900&height=500&fit=crop');" >
+                <div class="pic-text">
+                    <h1>Latvia</h1>
+                </div>
+            </div>
+            <!-- 搜尋結果 -->
+            <div class="card">
+                <p-table [value]="products" [tableStyle]="{'min-width': '50rem', 'height':'20rem'}">
+                    <ng-template pTemplate="header">
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <td style="font-weight:bold">{{ product.name }}</td>
+                            <td>{{ product.rating }} nights</td>
+                            <td>{{ product.quantity }} hotels</td>
+                            <td>per person from {{ product.price }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

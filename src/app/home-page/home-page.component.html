@@ -5,6 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .pic-image {
+      background-image: url("https://lhhcdn.wavecdn.net/dniojkjnx/image/upload/w_1140,h_330,c_fill/v1710402719/common/tnizvgemus4fod8gikhc.jpg");
+      background-color: #cccccc;
+      height: 300px;
+      width: 1200px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+    .pic-text {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #071D49;
+    }
+  </style>
 </head>
 
 <body>
@@ -28,17 +49,239 @@
   </div>
   <!-- 圖片旋轉 新加的，想測試出來-->
   <div class="card">
-    <p-galleria [(ngModel)]="images" [showItemNavigators]="true" [showThumbnails]="false" [showIndicators]="true" [showIndicatorsOnItem]="true" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px', 'margin-top':'2em' }">
-        <ng-template pTemplate="item" let-item>
-            <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
-        </ng-template>
-        <ng-template pTemplate="thumbnail" let-item>
-            <div class="grid grid-nogutter justify-content-center">
-                <img [src]="item.thumbnailImageSrc" style="display: block;" />
-            </div>
-        </ng-template>
+    <p-galleria [(ngModel)]="images" name="fieldName" ngDefaultControl [showItemNavigators]="true"
+      [showThumbnails]="false" [showIndicators]="true" [showIndicatorsOnItem]="true"
+      [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px', 'margin-top':'2em' }">
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item>
+        <div class="grid grid-nogutter justify-content-center">
+          <img [src]="item.thumbnailImageSrc" style="display: block;" />
+        </div>
+      </ng-template>
     </p-galleria>
-</div>
+  </div>
+  <!-- 機加酒選單 -->
+  <div  class="formgroup-inline"  style='background-color:rgb(7, 29, 73); height:70px; width:1200px ;padding:10px;margin-bottom:5px;' >
+
+    <!-- Departure Airport -->
+    <p-treeSelect class="w-full md:w-20rem" containerStyleClass="w-full" [(ngModel)]="selectedNodes" [options]="nodes"
+      [metaKeySelection]="false" selectionMode="multiple" placeholder="Departure Airport">
+    </p-treeSelect>
+
+    <!-- Destination and Hotel -->
+    <p-multiSelect [options]="groupedCities" [group]="true" [(ngModel)]="selectedCities"
+      placeholder="Destination and Hotel" scrollHeight="250px" display="chip">
+      <ng-template let-group pTemplate="group">
+        <div class="flex align-items-center">
+          <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+            [class]="'mr-2 flag flag-' + group.value" style="width: 20px" />
+          <span>{{ group.label }}</span>
+        </div>
+      </ng-template>
+    </p-multiSelect>
+
+    <!-- Date Range -->
+    <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"
+      placeholder="Travel Dates"></p-calendar>
+
+
+    <!-- count of customer-->
+    <p-overlayPanel #op>
+      <ng-template pTemplate="content">
+        <div>
+          <label class="mb-2 block font-bold" for="children">children</label>
+          <p-inputNumber [(ngModel)]="children" [style]="{'width': '4rem'}" [showButtons]="true" buttonLayout="horizontal"
+            spinnerMode="horizontal" inputId="children" decrementButtonClass="p-button-primary"
+            incrementButtonClass="p-button-primary" incrementButtonIcon="pi pi-plus"
+            decrementButtonIcon="pi pi-minus"></p-inputNumber>
+        </div>
+        <div>
+          <label class="mb-2 block font-bold" for="adult">adult</label>
+          <p-inputNumber [(ngModel)]="adult" [style]="{'width': '4rem'}" [showButtons]="true" buttonLayout="horizontal"
+            spinnerMode="horizontal" inputId="adult" decrementButtonClass="p-button-primary"
+            incrementButtonClass="p-button-primary" incrementButtonIcon="pi pi-plus"
+            decrementButtonIcon="pi pi-minus"></p-inputNumber>
+        </div>
+        
+      </ng-template>
+  </p-overlayPanel>
+  <p-inputNumber [(ngModel)]="total" inputId="travellers" suffix=" people"> </p-inputNumber>
+  <p-button (click)="op.toggle($event)" label="Travellers"></p-button>
+  
+
+
+  </div>
+  
+  <!-- 標題 -->
+  <div>
+    <h2>
+      <span>Flight &amp; Hotel Highlights</span>
+    </h2>
+    <h3>
+      <span> Book the perfect holiday</span>
+    </h3>
+    <!-- 卡片式選單 -->
+    <div class="formgroup-inline">
+      <div class="card flex justify-content-center">
+        <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+          <ng-template pTemplate="header">
+            <img alt="Card" src="https://lufthansaholidays.wavecdn.net/icmphotels/hlx/960_638/1645620270_OTS_AMTSES1762XX_0eacb6e62cf46bab6970c9171d6ab414.jpg" />
+          </ng-template>
+        </p-card>
+      </div>
+      <div class="card flex justify-content-center">
+        <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+          <ng-template pTemplate="header">
+            <img alt="Card" src="https://lufthansaholidays.wavecdn.net/icmphotels/hlx/960_638/1692176164_IBZ203B_NEU_01.jpg" />
+          </ng-template>
+        </p-card>
+      </div>
+      <div class="card flex justify-content-center">
+        <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+          <ng-template pTemplate="header">
+            <img alt="Card" src="https://lufthansaholidays.wavecdn.net/icmphotels/hlx/960_638/1530708738_OTS_AEGHRG10T2_neu_2.jpg" />
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+    <div class="formgroup-inline">
+      <div class="card flex justify-content-center">
+        <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+          <ng-template pTemplate="header">
+            <img alt="Card" src="https://lufthansaholidays.wavecdn.net/icmphotels/hlx/960_638/1665482447_FUE12B_NEU_01.jpg" />
+          </ng-template>
+        </p-card>
+      </div>
+      <div class="card flex justify-content-center">
+        <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+          <ng-template pTemplate="header">
+            <img alt="Card" src="https://lufthansaholidays.wavecdn.net/icmphotels/hlx/960_638/1537793580_LPA23B_n_39.jpg" />
+          </ng-template>
+        </p-card>
+      </div>
+      <div class="card flex justify-content-center">
+        <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+          <ng-template pTemplate="header">
+            <img alt="Card" src="https://lufthansaholidays.wavecdn.net/icmphotels/hlx/960_638/1709298381_CRE_1000000372_NEW_2.jpg" />
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+
+    <!-- 照片+按鈕 -->
+    <div class="pic-image">
+      <div class="pic-text">
+        <h2>Experience Crete</h2>
+        <h4>e. g. 7 nights at the 5* Hotel Annabelle Beach Resort | all inclusive</h4>
+        <a href="/en-de/hotel/all-destinations/greece/crete/further-places-crete/annabelle-beach-resort-7800?los=7&amp;dd=2024-04-04T00%3A01%3A00%2B00%3A00&amp;rd=2025-08-31T00%3A01%3A00%2B00%3A00&amp;travellers=25%2C25&amp;maxp=-1&amp;stopOver=10000&amp;viewMode=hotelCascade&amp;from=BRE%2CCGN%2CDRS%2CDUS%2CERF%2CFDH%2CFKB%2CFMO%2CFRA%2CKSF%2CBER%2CLBC&amp;airl=&amp;id=7800&amp;name=Annabelle+Beach+Resort&amp;staticGroupId=68429"
+          class="TeaserDestination_offerWrapper_sIsrJ" target="_self">
+          <p-button label="Book Now"></p-button>
+        </a>
+      </div>
+    </div>
+
+    <!-- 標題 -->
+    <div>
+      <h2>
+        <span>City Highlights</span>
+      </h2>
+      <h3>
+        <span> Experience the diversity of Europe's cities</span>
+      </h3>
+      <!-- 卡片式選單 -->
+      <div class="formgroup-inline">
+        <div class="card flex justify-content-center">
+          <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+            <ng-template pTemplate="header">
+              <img alt="Card" src="https://lhhcdn.wavecdn.net/dniojkjnx/image/upload/w_360,h_300,c_fill/v1701936070/common/lrnpan5kbw2v1p8k1ggp.jpg" />
+            </ng-template>
+          </p-card>
+        </div>
+        <div class="card flex justify-content-center">
+          <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+            <ng-template pTemplate="header">
+              <img alt="Card" src="https://lhhcdn.wavecdn.net/dniojkjnx/image/upload/w_360,h_300,c_fill/v1712319847/common/i9umx1ryncksqgiwfxzc.jpg" />
+            </ng-template>
+          </p-card>
+        </div>
+        <div class="card flex justify-content-center">
+          <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+            <ng-template pTemplate="header">
+              <img alt="Card" src="https://lhhcdn.wavecdn.net/dniojkjnx/image/upload/w_360,h_300,c_fill/v1704288236/common/yfxclkvpwaidfbbuunzb.jpg" />
+            </ng-template>
+          </p-card>
+        </div>
+      </div>
+    </div>
+
+    <!-- 照片+按鈕 -->
+    <div class="pic-image">
+      <div class="pic-text">
+        <h2>Early booking offers Save up to 50% now</h2>
+        <h4>e.g. Sardinia | 7 nights at the 4* Grand Hotel Smeraldo Beach | Breakfast</h4>
+        <a href="/en-de/hotel/all-destinations/greece/crete/further-places-crete/annabelle-beach-resort-7800?los=7&amp;dd=2024-04-04T00%3A01%3A00%2B00%3A00&amp;rd=2025-08-31T00%3A01%3A00%2B00%3A00&amp;travellers=25%2C25&amp;maxp=-1&amp;stopOver=10000&amp;viewMode=hotelCascade&amp;from=BRE%2CCGN%2CDRS%2CDUS%2CERF%2CFDH%2CFKB%2CFMO%2CFRA%2CKSF%2CBER%2CLBC&amp;airl=&amp;id=7800&amp;name=Annabelle+Beach+Resort&amp;staticGroupId=68429"
+          class="TeaserDestination_offerWrapper_sIsrJ" target="_self">
+          <p-button label="Be inspired now "></p-button>
+        </a>
+      </div>
+    </div>
+
+  <!-- 標題＋選單 -->
+  <div>
+    <h2>
+      <span>All about your trip</span>
+    </h2>
+    <h3>
+      <span>Take a look here</span>
+    </h3>
+    <!-- 卡片式選單 -->
+    <div class="formgroup-inline">
+      <div class="card flex justify-content-center">
+        <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+          <ng-template pTemplate="header">
+            <img alt="Card" src="https://lhhcdn.wavecdn.net/dniojkjnx/image/upload/w_360,h_300,c_fill/v1701936070/common/lrnpan5kbw2v1p8k1ggp.jpg" />
+          </ng-template>
+        </p-card>
+      </div>
+      <div class="card flex justify-content-center">
+        <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+          <ng-template pTemplate="header">
+            <img alt="Card" src="https://lhhcdn.wavecdn.net/dniojkjnx/image/upload/w_360,h_300,c_fill/v1712319847/common/i9umx1ryncksqgiwfxzc.jpg" />
+          </ng-template>
+        </p-card>
+      </div>
+      <div class="card flex justify-content-center">
+        <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+          <ng-template pTemplate="header">
+            <img alt="Card" src="https://lhhcdn.wavecdn.net/dniojkjnx/image/upload/w_360,h_300,c_fill/v1704288236/common/yfxclkvpwaidfbbuunzb.jpg" />
+          </ng-template>
+        </p-card>
+      </div>
+      <div class="card flex justify-content-center">
+        <p-card header="Advanced Card" subheader="Card Subheader" [style]="{ width: '240px' }">
+          <ng-template pTemplate="header">
+            <img alt="Card" src="https://lhhcdn.wavecdn.net/dniojkjnx/image/upload/w_360,h_300,c_fill/v1701936070/common/lrnpan5kbw2v1p8k1ggp.jpg" />
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+  </div>
+
+<!-- 客服 -->
+  <div>
+    <h2>Do you need help with your booking? </h2>
+    <strong><img src="https://lhhcdn.wavecdn.net/dniojkjnx/image/upload/w_270,h_180,c_fill/v1688734076/common/gqdt9uu7bdajleun6yah.jpg"></strong>
+    <h4>Our service team will be happy to assist you Monday to Friday from 08:00am to 08:00pm and Saturdays and Sundays</h4>
+    <h4>from 10:00am to 06:00pm and on public holidays from 10:00am to 06:00pm by telephone or e-mail:</h4>
+    <h4>Telephone: +49 (0) 234 961 036 26</h4>
+    <h4> Email: service.lhh@hlx.com</h4>
+    
+  </div>
+
+  </div>
+
 
 </body>
 
