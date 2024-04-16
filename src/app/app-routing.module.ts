@@ -9,8 +9,8 @@ const routes: Routes = [
   { path: 'homepage', component: HomePageComponent },
   { path: 'cities', component: CitiesComponent },
   { path: 'hotels', component: HotelsComponent },
-  { path: 'ticketAndHotel', component: TicketAndHotelComponent }
-
+  { path: 'ticketAndHotel', component: TicketAndHotelComponent },
+  { path: '**', redirectTo: 'homepage' } // 加入預設路徑
 ];
 
 @NgModule({

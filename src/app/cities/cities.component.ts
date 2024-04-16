@@ -17,8 +17,6 @@ interface City {
   styleUrls: ['./cities.component.scss']
 })
 export class CitiesComponent {
-  // 選單
-  items: MegaMenuItem[] | undefined;
   //departureAirport
   nodes!: any[];
   selectedNodes: any;
@@ -30,7 +28,7 @@ export class CitiesComponent {
   // count of customer
   adult: number = 2;
   children: number = 0;
-  total:number =this.adult+this.children;
+  total: number = this.adult + this.children;
   //sidebar
   sidebarVisible: boolean = false;
   //Budget
@@ -57,19 +55,15 @@ export class CitiesComponent {
   //搜尋結果
   products!: Product[];
 
-  constructor(private itemsService: ItemsService,private productService: ProductService) {
+  constructor(private productService: ProductService) {
 
 
   }
 
   ngOnInit() {
-    // 選單
-    this.itemsService.getItems().then((items) => {
-      this.items = items;
-    });
     //搜尋結果
     this.productService.getProductsMini().then((data) => {
       this.products = data;
-  });
+    });
   }
 }

@@ -16,9 +16,6 @@ interface City {
   styleUrls: ['./hotels.component.scss']
 })
 export class HotelsComponent {
-
-  // 選單
-  items: MegaMenuItem[] | undefined;
   //departureAirport
   nodes!: any[];
   selectedNodes: any;
@@ -30,7 +27,7 @@ export class HotelsComponent {
   // count of customer
   adult: number = 2;
   children: number = 2;
-  total:number =this.adult+this.children;
+  total: number = this.adult + this.children;
   //sidebar
   sidebarVisible: boolean = false;
   //Budget
@@ -66,19 +63,15 @@ export class HotelsComponent {
   //hotels搜尋結果
   products!: Product[];
 
-  constructor(private itemsService: ItemsService, private productService: ProductService) {
+  constructor(private productService: ProductService) {
 
 
   }
 
   ngOnInit() {
-    // 選單
-    this.itemsService.getItems().then((items) => {
-      this.items = items;
-    });
     // hotels搜尋結果
     this.productService.getProducts().then((data) => (this.products = data));
 
   }
- 
+
 }

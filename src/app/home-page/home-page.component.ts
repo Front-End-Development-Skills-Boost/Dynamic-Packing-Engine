@@ -20,9 +20,6 @@ interface City {
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-
-  // 選單
-  items: MegaMenuItem[] | undefined;
   // 圖片旋轉
   images: any[] | undefined;
   responsiveOptions: any[] | undefined;
@@ -37,12 +34,12 @@ export class HomePageComponent implements OnInit {
   // count of customer
   adult: number = 2;
   children: number = 4;
-  total:number =this.adult+this.children;
+  total: number = this.adult + this.children;
 
 
 
 
-  constructor(private destinationService: DestinationService, private itemsService: ItemsService, private photoService: PhotoService, private departureAirportService: DepartureAirportService) {
+  constructor(private destinationService: DestinationService, private photoService: PhotoService, private departureAirportService: DepartureAirportService) {
     //departureAirport
     this.departureAirportService.getFiles().then((files) => (this.nodes = files));
     //destination and hotel
@@ -69,11 +66,6 @@ export class HomePageComponent implements OnInit {
         numVisible: 1
       }
     ];
-
-    // 選單
-    this.itemsService.getItems().then((items) => {
-      this.items = items;
-    });
 
   }
 }
