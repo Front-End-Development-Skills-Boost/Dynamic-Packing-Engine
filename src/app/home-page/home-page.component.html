@@ -28,9 +28,11 @@
   </div> -->
   <!-- 圖片旋轉 新加的，想測試出來-->
   <div class="card">
-    <p-galleria [(ngModel)]="images" name="fieldName" ngDefaultControl [showItemNavigators]="true"
+    <p-galleria [value]="images" [showItemNavigators]="true" 
+    [autoPlay]="true" [circular]="true"
       [showThumbnails]="false" [showIndicators]="true" [showIndicatorsOnItem]="true"
-      [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px', 'margin-top':'2em' }">
+      [responsiveOptions]="responsiveOptions" 
+    [containerStyle]="{ 'max-width': '640px', 'margin-top':'2em' }">
       <ng-template pTemplate="item" let-item>
         <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
       </ng-template>
