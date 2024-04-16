@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import { TreeSelectModule } from 'primeng/treeselect';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
@@ -15,16 +15,37 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { GalleriaModule } from 'primeng/galleria';
 import { PhotoService } from 'service/photoservice';
+import { DepartureAirportService } from 'service/departureAirportService';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ItemsService } from 'service/itemsService';
+import { DestinationService } from 'service/destinationService';
+import { CalendarModule } from 'primeng/calendar';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { CardModule } from 'primeng/card';
+import { CitiesComponent } from './cities/cities.component';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { SliderModule } from 'primeng/slider';
+import { RatingModule } from 'primeng/rating';
+import { CheckboxModule } from 'primeng/checkbox';
+import { TableModule } from 'primeng/table';
+import { ProductService } from 'service/productService';
+import { HotelsComponent } from './hotels/hotels.component';
+import { DataViewModule } from 'primeng/dataview';
+import { TicketAndHotelComponent } from './ticket-and-hotel/ticket-and-hotel.component';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
+    CitiesComponent,
+    HotelsComponent,
+    TicketAndHotelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ButtonModule,
     TagModule,
     CarouselModule,
     BrowserModule,
@@ -35,11 +56,24 @@ import { PhotoService } from 'service/photoservice';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    TreeSelectModule,
+    MultiSelectModule,
+    CalendarModule,
+    InputNumberModule,
+    ButtonModule,
+    CardModule,
+    OverlayPanelModule,
+    SliderModule,
+    RatingModule,
+    CheckboxModule,
+    TableModule,
+    DataViewModule,
+    BreadcrumbModule
 
 
   ],
-  providers: [PhotoService],
+  providers: [DestinationService, ItemsService, PhotoService, DepartureAirportService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

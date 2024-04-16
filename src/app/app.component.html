@@ -1,1 +1,43 @@
-<app-home-page></app-home-page>
+<!-- 表頭區移到app.component統一管理 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="grid">
+        <div class="col-offset-1 col-10">
+            <!-- 表頭 -->
+            <div class="grid">
+                <div class="icon col-4">
+                    <a href="https://www.lufthansaholidays.com/en-de">
+                        <img alt="dropdown icon" class="headerBrandImage"
+                            src="../../assets/icons/410fd6b2fc99a2277069.svg">
+                    </a>
+                </div>
+                <div class="icon col-4"></div>
+                <div class="rightInfo text-right col-4">
+                    <span>
+                        <span class="pi pi-phone phoneImg"></span>
+                        <span class="phoneNumberText">+49 (0) 7221 / 96 90 300</span>
+                    </span>
+                    <span class="pi pi-heart-fill heartIcon"></span>
+                    <img alt="dropdown icon" class="countryImg" src="../../assets/icons/Germany.png">
+                </div>
+            </div>
+            <!-- 選單 -->
+            <div class="card menuBar">
+                <p-megaMenu [model]="items"></p-megaMenu>
+            </div>
+
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</body>
+
+</html>

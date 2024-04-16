@@ -1,0 +1,119 @@
+
+// <!-- 商品細節列 -->
+body {
+    background-color: #fff;
+    color: #071d49;
+    font-family: LufthansaTextWebBETA-Regular, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    -ms-overflow-style: scrollbar;
+}
+
+.OfferSummaryBar_offerSummaryBar_oML55 {
+    background-color: rgb(245, 245, 245);
+    border-bottom: none;
+    box-shadow: none;
+    color: rgb(7, 29, 73);
+    position: relative;
+}
+
+.container-fluid-lg {
+    margin: 0 auto;
+    max-width: 1180px;
+    width: auto;
+}
+
+.OfferSummaryBar_offerSummaryBarContainer_ecg86 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 0px;
+    position: relative;
+}
+
+.OfferSummaryBar_column_m_TL0 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: transparent;
+    border-radius: 5px;
+    flex: 1 1 20%;
+    font-size: 13px;
+    line-height: 1;
+    padding: 5px 10px;
+    transition: all 0.125s ease 0s;
+}
+
+.OfferSummaryBar_offerSummaryBar_oML55 {
+    background-color: rgb(245, 245, 245);
+    border-bottom: none;
+    box-shadow: none;
+    color: rgb(7, 29, 73);
+    position: relative;
+}
+.OfferSummaryBar_label_zuvch {
+    color: rgb(74, 74, 74);
+    font-size: 14px;
+    font-weight: 700;
+}
+.OfferSummaryBar_content_QIJqD {
+    font-size: 13px;
+}
+.OfferSummaryBar_icon_TkeN5 {
+    color: rgb(7, 29, 73);
+    display: none;
+    font-size: 24px;
+    padding-right: 8px;
+}
+
+.PriceDetail_bookNowContainer_QfeI2 {
+    display: flex;
+    background: transparent;
+    border: none;
+    flex: 1 0 auto;
+    justify-content: space-between;
+    padding: 5px 5px 5px 10px;
+}
+.Breadcrumb_root_jMUV2 {
+    background: rgb(255, 255, 255);
+    border-bottom: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px 0px;
+    padding: 15px 0px 10px;
+}
+.btn-primary {
+    background: #ffad00;
+    border: 1px solid #ffad00;
+    border-radius: 2px;
+    box-shadow: none;
+    color: #000036;
+    outline: none;
+}
+.TravelersFlyoutPopup_trigger_DFk_J {
+    color: rgb(7, 29, 73);
+    display: inline-block;
+    font-family: LufthansaTextWebBETA-Bold, Verdana, sans-serif;
+}
+.OfferSummaryBar_label_zuvch {
+    color: rgb(74, 74, 74);
+    font-size: 14px;
+    font-weight: 700;
+}
+.PriceDetail_priceLabel_Voi3V {
+    font-size: 12px;
+}
+.PriceDetail_price_IDZK5 .price--amount--integer {
+    font-family: LufthansaTextWebBETA-Bold, Verdana, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+.price--amount--integer {
+    color: #071d49;
+    white-space: nowrap;
+}
+.PriceDetail_pricePerPerson_VHmHD {
+    color: rgb(102, 102, 102);
+    margin: 0px 5px 0px 0px;
+}
+
