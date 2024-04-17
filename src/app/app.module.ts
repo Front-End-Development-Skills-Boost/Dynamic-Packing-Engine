@@ -35,6 +35,7 @@ import { TicketAndHotelComponent } from './ticket-and-hotel/ticket-and-hotel.com
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { DialogModule } from 'primeng/dialog';
 import { ScrollTopModule } from 'primeng/scrolltop';
+import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { ScrollTopModule } from 'primeng/scrolltop';
     DataViewModule,
     BreadcrumbModule,
     DialogModule,
-    ScrollTopModule
+    ScrollTopModule,
+    VirtualScrollerModule
 
 
   ],

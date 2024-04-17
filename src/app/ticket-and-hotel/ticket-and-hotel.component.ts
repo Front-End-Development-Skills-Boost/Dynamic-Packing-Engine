@@ -3,6 +3,8 @@ import { MegaMenuItem } from 'primeng/api';
 import { ItemsService } from '../../../service/itemsService';
 import { MenuItem } from 'primeng/api';
 import { PhotoService } from 'service/photoservice';
+import { ProductService } from 'service/productService';
+import { Product } from 'domain/product';
 
 @Component({
   selector: 'app-ticket-and-hotel',
@@ -26,8 +28,10 @@ export class TicketAndHotelComponent implements OnInit {
   showDialog() {
       this.visible = true;
   }
+  //動態選擇旅行天數 出發機場 日期
+  products!: Product[];
 
-  constructor(private itemsService: ItemsService, private photoService: PhotoService) {
+  constructor(private itemsService: ItemsService, private photoService: PhotoService, private productService: ProductService) {
   }
 
   ngOnInit() {
@@ -56,6 +60,8 @@ export class TicketAndHotelComponent implements OnInit {
         numVisible: 1
       }
     ];
+    //動態選擇旅行天數 出發機場 日期
+     this.productService.getProducts().then((data) => (this.products = data));
   }
 
 
