@@ -33,6 +33,9 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { DataViewModule } from 'primeng/dataview';
 import { TicketAndHotelComponent } from './ticket-and-hotel/ticket-and-hotel.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { DialogModule } from 'primeng/dialog';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
 
 @NgModule({
@@ -69,7 +72,10 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
     CheckboxModule,
     TableModule,
     DataViewModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    DialogModule,
+    ScrollTopModule,
+    VirtualScrollerModule
 
 
   ],
