@@ -36,6 +36,7 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { DialogModule } from 'primeng/dialog';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     BreadcrumbModule,
     DialogModule,
     ScrollTopModule,
-    VirtualScrollerModule
+    VirtualScrollerModule,
+    SelectButtonModule
 
 
   ],

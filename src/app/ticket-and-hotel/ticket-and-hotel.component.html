@@ -263,15 +263,18 @@
                 </div>
             </div>
         </header>
-        <div class="grid" >
-            <div class="col-3" >
+        <div class="grid">
+            <div class="col-3">
                 <div class="card flex justify-content-center Hoteldetail_sidebarBlockTitle_oro3D">
-                    <p-virtualScroller  [value]="products" [style]="{ width: '280px' }" scrollHeight="300px" [itemSize]="55">
-                        <ng-template pTemplate="header"><h3 style="text-align: center;">Duration:</h3></ng-template>
-                        <ng-template pTemplate="item"  class="border-5 surface-border border-round" let-product>
-                            <div class="hover flex p-2 h-full border-1 surface-border" style="font-weight:bold;" >
-                                <div class="col-8" >{{ product.rating}} nights</div>
-                                <div class="col-5" >from {{ product.price *5 +' '}} €</div>
+                    <p-virtualScroller [value]="products" [style]="{ width: '280px' }" scrollHeight="300px"
+                        [itemSize]="55">
+                        <ng-template pTemplate="header">
+                            <h3 style="text-align: center;">Duration:</h3>
+                        </ng-template>
+                        <ng-template pTemplate="item" class="border-5 surface-border border-round" let-product>
+                            <div class="hover flex p-2 h-full border-1 surface-border" style="font-weight:bold;">
+                                <div class="col-8">{{ product.rating}} nights</div>
+                                <div class="col-5">from {{ product.price *5 +' '}} €</div>
                             </div>
                         </ng-template>
                     </p-virtualScroller>
@@ -279,12 +282,15 @@
             </div>
             <div class="col-3">
                 <div class="card flex justify-content-center Hoteldetail_sidebarBlockTitle_oro3D">
-                    <p-virtualScroller [value]="products" [style]="{ width: '280px' }" scrollHeight="300px" [itemSize]="55">
-                        <ng-template pTemplate="header"><h3 style="text-align: center;">Departure airport:</h3></ng-template>
-                        <ng-template pTemplate="item"  class="border-1 surface-border border-round" let-product>
-                            <div class="hover flex p-2 h-full border-1 surface-border" style="font-weight:bold;" >
-                                <div class="col-8" >{{ product.name}}</div>
-                                <div class="col-5" >from {{ product.rating *50 +' '}} €</div>
+                    <p-virtualScroller [value]="products" [style]="{ width: '280px' }" scrollHeight="300px"
+                        [itemSize]="55">
+                        <ng-template pTemplate="header">
+                            <h3 style="text-align: center;">Departure airport:</h3>
+                        </ng-template>
+                        <ng-template pTemplate="item" class="border-1 surface-border border-round" let-product>
+                            <div class="hover flex p-2 h-full border-1 surface-border" style="font-weight:bold;">
+                                <div class="col-8">{{ product.name}}</div>
+                                <div class="col-5">from {{ product.rating *50 +' '}} €</div>
                             </div>
                         </ng-template>
                     </p-virtualScroller>
@@ -292,12 +298,15 @@
             </div>
             <div class="col-3">
                 <div class="card flex justify-content-center Hoteldetail_sidebarBlockTitle_oro3D">
-                    <p-virtualScroller [value]="products" [style]="{ width: '280px' }" scrollHeight="300px" [itemSize]="55">
-                        <ng-template pTemplate="header"><h3 style="text-align: center;">Month:</h3></ng-template>
-                        <ng-template pTemplate="item"  class="border-1 surface-border border-round" let-product>
-                            <div class="hover flex p-2 h-full border-1 surface-border" style="font-weight:bold;" >
-                                <div class="col-8" >April 2024</div>
-                                <div class="col-5" >from {{ product.quantity *8 +' '}} €</div>
+                    <p-virtualScroller [value]="products" [style]="{ width: '280px' }" scrollHeight="300px"
+                        [itemSize]="55">
+                        <ng-template pTemplate="header">
+                            <h3 style="text-align: center;">Month:</h3>
+                        </ng-template>
+                        <ng-template pTemplate="item" class="border-1 surface-border border-round" let-product>
+                            <div class="hover flex p-2 h-full border-1 surface-border" style="font-weight:bold;">
+                                <div class="col-8">April 2024</div>
+                                <div class="col-5">from {{ product.quantity *8 +' '}} €</div>
                             </div>
                         </ng-template>
                     </p-virtualScroller>
@@ -305,12 +314,15 @@
             </div>
             <div class="col-3">
                 <div class="card flex justify-content-center Hoteldetail_sidebarBlockTitle_oro3D">
-                    <p-virtualScroller [value]="products" [style]="{ width: '280px' }" scrollHeight="300px" [itemSize]="55">
-                        <ng-template pTemplate="header"><h3 style="text-align: center;">Month:</h3></ng-template>
-                        <ng-template pTemplate="item"  class="border-1 surface-border border-round" let-product>
-                            <div class="hover flex p-2 h-full border-1 surface-border" style="font-weight:bold;" >
-                                <div class="col-8" >Tue, 23.04.</div>
-                                <div class="col-5" >from {{ product.rating *45 +' '}} €</div>
+                    <p-virtualScroller [value]="products" [style]="{ width: '280px' }" scrollHeight="300px"
+                        [itemSize]="55">
+                        <ng-template pTemplate="header">
+                            <h3 style="text-align: center;">Day:</h3>
+                        </ng-template>
+                        <ng-template pTemplate="item" class="border-1 surface-border border-round" let-product>
+                            <div class="hover flex p-2 h-full border-1 surface-border" style="font-weight:bold;">
+                                <div class="col-8">Tue, 23.04.</div>
+                                <div class="col-5">from {{ product.rating *45 +' '}} €</div>
                             </div>
                         </ng-template>
                     </p-virtualScroller>
@@ -320,7 +332,116 @@
 
     </div>
 </div>
-<!-- 
+<!-- 航班細節＆行李 -->
+<div class="card" >
+    <div class="grid">
+        <div class="col-3">
+            <h3>Flight times</h3>
+        </div>
+        <span class="pi pi-arrow-right"></span>
+        <div class="col-3">
+            <h4>Departure flight</h4>
+            <h5>Tue, 23.04.24 19:00, DUS</h5>
+            <h5>Eurowings</h5>
+            <span><span class="pi pi-inbox"></span>8kg carry-on baggage included</span>
+
+        </div>
+        <span class="pi pi-arrow-left"></span>
+        <div class="col-3">
+            <h4>Return flight</h4>
+            <h5>Wed, 24.04.24 06:25, SZG</h5>
+            <h5>Eurowings</h5>
+            <span><span class="pi pi-inbox"></span>8kg carry-on baggage included</span>
+        </div>
+        <div class="col-1">
+            <p-button label="Close"></p-button>
+        </div>
+    </div>
+    <hr>
+    <!-- 班級直飛＆行李公斤選擇 -->
+    <h3 style="text-align:center;"> <span class="pi pi-info-circle"></span>Please take your flight and baggage selection
+        below:</h3>
+
+    <div class="grid">
+        <div class="col-3">
+            <h4>Only direct flights </h4>
+            <p-selectButton [options]="stateOptions" [(ngModel)]="value" optionLabel="label"
+                optionValue="value"></p-selectButton>
+        </div>
+        <div class=" col-1 v-line" style="left:25%">
+        </div>
+        <div class="col-3">
+            <h4>Lufthansa flights only</h4>
+            <p-selectButton [options]="stateOptions" [(ngModel)]="value" optionLabel="label"
+                optionValue="value"></p-selectButton>
+        </div>
+        <div class=" col-1 v-line" style="left:45%">
+        </div>
+        <div class="col-6">
+            <h4>Luggage</h4>
+            <p-selectButton [options]="paymentOptions" [(ngModel)]="value2" [multiple]="true" optionLabel="name"
+                optionValue="value"></p-selectButton>
+        </div>
+
+    </div>
+    <!-- 來回班機動態選擇 -->
+    <div class="grid">
+        <div class="col-6">
+            <div class="card flex justify-content-center Hoteldetail_sidebarBlockTitle_oro3D">
+                <p-virtualScroller [value]="products" [style]="{ width: '565px'}" scrollHeight="250px" [itemSize]="95">
+                    <ng-template pTemplate="header">
+                        <h3 style="text-align: center;font-weight:bold">Return flight:</h3>
+                    </ng-template>
+                    <ng-template pTemplate="item" class="border-5 surface-border border-round" let-product>
+                        <div class="hover flex p-2 h-full border-1 surface-border"
+                            style="font-weight:bold; text-align: center;">
+                            <img src="../../assets/icons/Eurowing.png"
+                                style="width: 40px;height: 40px; display: block;" />
+                            <div class="col-3">19:25<br>18. September </div>
+                            <div class="col-2">
+                                <span>direct</span><br><span class="pi pi-info-circle"><br></span>
+                                <hr><span>1h 10m</span>
+                            </div>
+                            <div class="col-3">19:25<br>18. September </div>
+                            <div class="col-1">
+                                <span class="pi pi-inbox"><br>8kg</span>
+                            </div>
+                            <div class="col-2">+ {{ product.price +' '}} €</div>
+                        </div>
+                    </ng-template>
+                </p-virtualScroller>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card flex justify-content-center Hoteldetail_sidebarBlockTitle_oro3D">
+                <p-virtualScroller [value]="products" [style]="{ width: '565px'}" scrollHeight="250px" [itemSize]="95">
+                    <ng-template pTemplate="header">
+                        <h3 style="text-align: center;font-weight:bold">Departure flight:</h3>
+                    </ng-template>
+                    <ng-template pTemplate="item" class="border-5 surface-border border-round" let-product>
+                        <div class="hover flex p-2 h-full border-1 surface-border"
+                            style="font-weight:bold; text-align: center;">
+                            <img src="../../assets/icons/Eurowing.png"
+                                style="width: 40px;height: 40px; display: block;" />
+                            <div class="col-3">19:25<br>18. September </div>
+                            <div class="col-2">
+                                <span>direct</span><br><span class="pi pi-info-circle"><br></span>
+                                <hr><span>1h 10m</span>
+                            </div>
+                            <div class="col-3">19:25<br>18. September </div>
+                            <div class="col-1">
+                                <span class="pi pi-inbox"><br>8kg</span>
+                            </div>
+                            <div class="col-2">+ {{ product.price +' '}} €</div>
+                        </div>
+                    </ng-template>
+                </p-virtualScroller>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 
 </body>
 
 </html> -->

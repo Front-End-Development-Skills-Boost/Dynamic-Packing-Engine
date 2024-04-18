@@ -26,10 +26,19 @@ export class TicketAndHotelComponent implements OnInit {
   //Amenities彈窗
   visible: boolean = false;
   showDialog() {
-      this.visible = true;
+    this.visible = true;
   }
   //動態選擇旅行天數 出發機場 日期
   products!: Product[];
+  //是否直飛
+  stateOptions: any[] = [{ label: 'Off', value: 'off' }, { label: 'On', value: 'on' }];
+  value: string = 'off';
+  value2!: number;
+  paymentOptions: any[] = [
+      { name: 'Option 1', value: 1 },
+      { name: 'Option 2', value: 2 },
+      { name: 'Option 3', value: 3 }
+  ];
 
   constructor(private itemsService: ItemsService, private photoService: PhotoService, private productService: ProductService) {
   }
@@ -61,7 +70,7 @@ export class TicketAndHotelComponent implements OnInit {
       }
     ];
     //動態選擇旅行天數 出發機場 日期
-     this.productService.getProducts().then((data) => (this.products = data));
+    this.productService.getProducts().then((data) => (this.products = data));
   }
 
 
