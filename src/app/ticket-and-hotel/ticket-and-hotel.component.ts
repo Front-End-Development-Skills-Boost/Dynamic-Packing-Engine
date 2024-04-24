@@ -39,6 +39,12 @@ export class TicketAndHotelComponent implements OnInit {
       { name: 'Option 2', value: 2 },
       { name: 'Option 3', value: 3 }
   ];
+ //Continue彈窗
+ visible2: boolean = false;
+ showDialog2() {
+   this.visible2 = true;
+ }
+ Luggage!: string;
 
   constructor(private itemsService: ItemsService, private photoService: PhotoService, private productService: ProductService) {
   }

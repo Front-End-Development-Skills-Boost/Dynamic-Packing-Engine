@@ -85,7 +85,7 @@
                             class="PriceDetail_priceLabel_Voi3V">total price</span><span><span
                                 class="price--amount--integer">1213&nbsp;€</span></span></div>
                     <div class="OfferSummaryBar_bookNowBtn_JCQR7">
-                        <p-button label="Continue"></p-button>
+                        <p-button (click)="showDialog2()" label="Continue"></p-button>
                     </div>
                 </div>
             </div>
@@ -525,7 +525,49 @@
         </p-card>
     </div>
 </div>
+<div style="float: left;">
     <p-button label="View more reviews"></p-button>
+</div>
+<div style="float: right;">
+    <p-button (click)="showDialog2()" label="Continue"></p-button>
+    <p-dialog header="Header" [(visible)]="visible2" [style]="{ width: '50vw' }" >
+        <ng-template pTemplate="header">
+        </ng-template>
+        <h4 class="text_align_center">Your current selection includes hand luggage only. Are you sure you don't want to add additional checked
+            baggage?</h4>
+        <hr>
+        <div class="grid text_align_center"  >
+            <div class="col-6">
+                <p-card header="Sauber und preiswert.">
+                    <div style="height: 200px;">
+                        <img alt="dropdown icon" height="90" src="../../assets/icons/little luggage.png">
+                        <p>55x40x23cm</p>
+                        <p>8kg Hand Luggage</p>
+                        <p-radioButton name="Luggage" value="Included" [(ngModel)]="Luggage"
+                            inputId="Luggage1"></p-radioButton>
+                        <label for="Luggage1" class="ml-2">Included</label>
+                       
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-6">
+                <p-card header="Sauber und preiswert.">
+                    <div style="height: 200px;">
+                        <img alt="dropdown icon" height="90" src="../../assets/icons/many luggage.png">
+                        <p>8kg Hand Luggage </p>
+                        <p>+ 23kg Checked baggage</p>
+                        <p-radioButton name="Luggage" value="+ 55 € per person" [(ngModel)]="Luggage"
+                            inputId="Luggage2"></p-radioButton>
+                        <label for="Luggage2" class="ml-2">+ 55 € per person</label>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+        <ng-template pTemplate="footer">
+            <p-button (click)="visible2 = false" label="Continue Booking" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-dialog>
+</div>
 <!-- 
 </body>
 

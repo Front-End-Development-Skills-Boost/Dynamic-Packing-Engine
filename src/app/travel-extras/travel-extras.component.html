@@ -1,0 +1,124 @@
+<!-- 商品細節列 -->
+<div class="OfferSummaryBar_offerSummaryBar_oML55">
+    <div class="container-fluid-lg">
+        <div class="
+    OfferSummaryBar_offerSummaryBarContainer_ecg86
+    OfferSummaryBar_offerSummaryBarContainerDesktop_S97ny
+    ">
+            <div></div>
+            <div class="OfferSummaryBar_column_m_TL0 OfferSummaryBar_columnFirst_F31Bb">
+                <div class="OfferSummaryBar_columnContent_FqU9z">
+                    <div class="OfferSummaryBar_label_zuvch">Cologne - Mallorca</div>
+                    <div class="OfferSummaryBar_content_QIJqD">2 adults - 3 nights<div>
+                            <a class="TravelersFlyoutPopup_trigger_DFk_J">change travelers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="OfferSummaryBar_column_m_TL0"><i class="OfferSummaryBar_icon_TkeN5 icon-airplane-right"></i>
+                <div class="OfferSummaryBar_columnContent_FqU9z">
+                    <div class="OfferSummaryBar_label_zuvch">Departure flight</div>
+                    <div class="OfferSummaryBar_content_QIJqD">Sun, 21.04.24 20:05,&nbsp;CGN&nbsp;<span
+                            class="OfferSummaryBar_baggageInfoLine_UEPsU">(<span class="
+    OfferSummaryBar_baggageIcon_lvr9f
+    icon-baggage"></span>8kg)</span>&nbsp;<div
+                            class="ResponsiveTooltip_root_XOa_P OfferSummaryBar_tooltipWrapper_IzvYf">
+                            <div><span class="OfferSummaryBar_tooltipTrigger_dm2jD icon-info"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="OfferSummaryBar_column_m_TL0"><i class="OfferSummaryBar_icon_TkeN5 icon-airplane-left"></i>
+                <div class="OfferSummaryBar_columnContent_FqU9z">
+                    <div class="OfferSummaryBar_label_zuvch">Return flight</div>
+                    <div class="OfferSummaryBar_content_QIJqD">Wed, 24.04.24 08:35,&nbsp;PMI&nbsp;<span
+                            class="OfferSummaryBar_baggageInfoLine_UEPsU">(<span class="
+    OfferSummaryBar_baggageIcon_lvr9f
+    icon-baggage"></span>8kg)</span>&nbsp;<div
+                            class="ResponsiveTooltip_root_XOa_P OfferSummaryBar_tooltipWrapper_IzvYf">
+                            <div><span class="OfferSummaryBar_tooltipTrigger_dm2jD icon-info"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="OfferSummaryBar_column_m_TL0"><i class="OfferSummaryBar_icon_TkeN5 icon-board"></i>
+                <div class="OfferSummaryBar_columnContent_FqU9z">
+                    <div class="OfferSummaryBar_label_zuvch">Room / board</div>
+                    <div class="OfferSummaryBar_content_QIJqD">Double room, No board</div>
+                </div>
+            </div>
+            <div class="PriceDetail_root_h1iOt">
+                <div class="PriceDetail_bookNowContainer_QfeI2">
+                    <div class="PriceDetail_price_IDZK5 PriceDetail_pricePerPerson_VHmHD"><span
+                            class="PriceDetail_priceLabel_Voi3V">price per person</span><span><span
+                                class="price--amount--integer">607&nbsp;€</span></span></div>
+                    <div class="PriceDetail_price_IDZK5 PriceDetail_priceAmount_XJx3H"><span
+                            class="PriceDetail_priceLabel_Voi3V">total price</span><span><span
+                                class="price--amount--integer">1213&nbsp;€</span></span></div>
+                    <div class="OfferSummaryBar_bookNowBtn_JCQR7">
+                        <p-button (click)="showDialog2()" label="Continue"></p-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 麵包屑 -->
+<div class="card flex" style="color: rgb(7, 29, 73) ;">
+    <p-breadcrumb class="max-w-full" [model]="breadcrumb"></p-breadcrumb>
+</div>
+
+<!-- travel旅遊 選配件 -->
+<h1>Travel extras</h1>
+<div class="grid">
+    <div class="col-4">
+        <p-card [style]="{ height: '580px' }">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="	https://www.lufthansaholidays.com/assets/lhh/ed6c712b65f9b72adc67.jpg" />
+            </ng-template>
+            <h2>Book a transfer from and to the airport</h2>
+            <i class="pi pi-check">All inclusive, no hidden costs</i>
+            <i class="pi pi-check">Service for every budget</i>
+            <i class="pi pi-check">Large selection of vehicles</i>
+            <ng-template pTemplate="footer">
+                <h3 style="float: right;">From 116.00 €</h3>
+            </ng-template>
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card [style]="{ height: '580px' }">
+            <ng-template pTemplate="header">
+                <img alt="Card" src="https://www.lufthansaholidays.com/assets/lhh/e31966363451edb91b96.jpg" />
+            </ng-template>
+            <h2>Hire rental car</h2>
+            <h4>Would you like to discover your travel destination? Book a rental car to cheap conditions.s</h4>
+            <i class="pi pi-check">Unlimited kilometers</i>
+            <i class="pi pi-check">Collision damage waiver & theft protection</i>
+            <i class="pi pi-check"> All local taxes & fees</i>
+            <ng-template pTemplate="footer">
+                <h3 style="float: right;">From 313.00 €</h3>
+            </ng-template>
+        </p-card>
+    </div>
+</div>
+
+<div class="card flex justify-content-center">
+    <p-sidebar [(visible)]="sidebarVisible"  position="right" styleClass=" p-sidebar-lg">
+        <ng-template pTemplate="header" >
+            <h2>Transfer possibilities</h2>
+        </ng-template>
+        <ng-template pTemplate="content">
+            <i class="pi pi-check">All inclusive, no hidden costs</i><br>
+            <i class="pi pi-check">Service for every budget</i><br>
+            <i class="pi pi-check">Large selection of vehicles</i>
+        </ng-template>
+
+        <ng-template pTemplate="footer">Footer Content</ng-template>
+    </p-sidebar>
+    <p-button (click)="sidebarVisible = true" icon="pi pi-arrow-left"></p-button>
+</div>
+
+<div style="float: right;">
+    <p-button label="Next"></p-button>
+</div>
