@@ -104,17 +104,51 @@
 </div>
 
 <div class="card flex justify-content-center">
-    <p-sidebar [(visible)]="sidebarVisible"  position="right" styleClass=" p-sidebar-lg">
-        <ng-template pTemplate="header" >
-            <h2>Transfer possibilities</h2>
+    <p-sidebar [(visible)]="sidebarVisible" position="right" styleClass=" p-sidebar-lg">
+        <ng-template pTemplate="header">
+            <div class="text_align_center" style="background-color: #071d49; width: 800px; color: white;">
+                <h2>Hire rental car</h2>
+            </div>
         </ng-template>
         <ng-template pTemplate="content">
+            <h2 style="color: #071d49;">All your Sunnycars advantages at one glance</h2>
             <i class="pi pi-check">All inclusive, no hidden costs</i><br>
             <i class="pi pi-check">Service for every budget</i><br>
             <i class="pi pi-check">Large selection of vehicles</i>
+            <br>
+            <h4>Please note: For rental car reservation a credit card at service point is needed. A cash deposit is
+                not possible.</h4>
+            <br>
+            <div class="card">
+                <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Total price</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <td><p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox></td>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.category }}</td>
+                            <td>{{ product.quantity }} €</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
         </ng-template>
 
-        <ng-template pTemplate="footer">Footer Content</ng-template>
+        <ng-template pTemplate="footer">
+            <hr>
+            <p-button label="Comfirm"></p-button>
+            <p-button label="Cancel"></p-button>
+            <div style="float: right;">
+                <h3>Total price: 313€</h3>
+            </div>
+        </ng-template>
     </p-sidebar>
     <p-button (click)="sidebarVisible = true" icon="pi pi-arrow-left"></p-button>
 </div>
