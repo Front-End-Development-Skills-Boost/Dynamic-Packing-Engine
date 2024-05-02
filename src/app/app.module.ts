@@ -37,6 +37,10 @@ import { DialogModule } from 'primeng/dialog';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { TravelExtrasComponent } from './travel-extras/travel-extras.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -45,7 +49,9 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     HomePageComponent,
     CitiesComponent,
     HotelsComponent,
-    TicketAndHotelComponent
+    TicketAndHotelComponent,
+    TravelExtrasComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +83,9 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     DialogModule,
     ScrollTopModule,
     VirtualScrollerModule,
-    SelectButtonModule
+    SelectButtonModule,
+    RadioButtonModule,
+    SidebarModule,
 
 
   ],

@@ -85,7 +85,7 @@
                             class="PriceDetail_priceLabel_Voi3V">total price</span><span><span
                                 class="price--amount--integer">1213&nbsp;€</span></span></div>
                     <div class="OfferSummaryBar_bookNowBtn_JCQR7">
-                        <p-button label="Continue"></p-button>
+                        <p-button (click)="showDialog2()" label="Continue"></p-button>
                     </div>
                 </div>
             </div>
@@ -246,9 +246,9 @@
 </div>
 
 <!-- 動態選取旅行天數 出發機場 出發月份＆日期 -->
+<h1>Customize your travel dates and flight times</h1>
 <div class="card">
-    <h1>Customize your travel dates and flight times</h1>
-    <div class="align-items-center" style="padding: 10px; box-shadow: 0px 0px 9px lightgray;">
+    <div class="align-items-center">
         <header>
             <div class="grid ">
                 <div class="col-4">
@@ -333,7 +333,7 @@
     </div>
 </div>
 <!-- 航班細節＆行李 -->
-<div class="card" >
+<div class="card">
     <div class="grid">
         <div class="col-3">
             <h3>Flight times</h3>
@@ -363,21 +363,21 @@
         below:</h3>
 
     <div class="grid">
-        <div class="col-3">
+        <div class="col-3 formgroup-inline">
             <h4>Only direct flights </h4>
             <p-selectButton [options]="stateOptions" [(ngModel)]="value" optionLabel="label"
                 optionValue="value"></p-selectButton>
         </div>
-        <div class=" col-1 v-line" style="left:25%">
+        <div class="v-line" style="left:30%">
         </div>
-        <div class="col-3">
+        <div class="col-4 formgroup-inline">
             <h4>Lufthansa flights only</h4>
             <p-selectButton [options]="stateOptions" [(ngModel)]="value" optionLabel="label"
                 optionValue="value"></p-selectButton>
         </div>
-        <div class=" col-1 v-line" style="left:45%">
+        <div class="v-line" style="left:53%">
         </div>
-        <div class="col-6">
+        <div class="col-4 formgroup-inline">
             <h4>Luggage</h4>
             <p-selectButton [options]="paymentOptions" [(ngModel)]="value2" [multiple]="true" optionLabel="name"
                 optionValue="value"></p-selectButton>
@@ -385,7 +385,7 @@
 
     </div>
     <!-- 來回班機動態選擇 -->
-    <div class="grid">
+    <div class="grid" style="padding: 15px; box-shadow: 0px 0px 9px lightgray;">
         <div class="col-6">
             <div class="card flex justify-content-center Hoteldetail_sidebarBlockTitle_oro3D">
                 <p-virtualScroller [value]="products" [style]="{ width: '565px'}" scrollHeight="250px" [itemSize]="95">
@@ -441,7 +441,134 @@
 
     </div>
 
-    <!-- 
+</div>
+<!-- Room and board type -->
+<h1>Room and board type</h1>
+
+<div class="card" style="padding: 15px; box-shadow: 0px 0px 9px lightgray;">
+    <div class="grid">
+        <div class="col-6">
+            <div class="card flex justify-content-center Hoteldetail_sidebarBlockTitle_oro3D">
+                <p-virtualScroller [value]="products" [style]="{ width: '565px'}" scrollHeight="150px" [itemSize]="85">
+                    <ng-template pTemplate="header">
+                        <h3 style="text-align: center;font-weight:bold">Room:</h3>
+                    </ng-template>
+                    <ng-template pTemplate="item" class="border-5 surface-border border-round" let-product>
+                        <div class="hover flex p-2 h-full border-1 surface-border"
+                            style="font-weight:bold; text-align: center;">
+                            <div class="col-4">{{product.name}}</div>
+                            <div class="col-2">+ {{ product.price +' '}} €</div>
+                        </div>
+                    </ng-template>
+                </p-virtualScroller>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card flex justify-content-center Hoteldetail_sidebarBlockTitle_oro3D">
+                <p-virtualScroller [value]="products" [style]="{ width: '565px'}" scrollHeight="150px" [itemSize]="85">
+                    <ng-template pTemplate="header">
+                        <h3 style="text-align: center;font-weight:bold">Board:</h3>
+                    </ng-template>
+                    <ng-template pTemplate="item" class="border-5 surface-border border-round" let-product>
+                        <div class="hover flex p-2 h-full border-1 surface-border"
+                            style="font-weight:bold; text-align: center;">
+                            <div class="col-4">{{product.category}}</div>
+                            <div class="col-2">+ {{ product.price *1.5 +' '}} €</div>
+                        </div>
+                    </ng-template>
+                </p-virtualScroller>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1>Reviews</h1>
+<div class="grid">
+    <div class="col-6">
+        <p-card header="gutes Hotel für Geschäftsreisen">
+            <div style="height: 150px;">
+                <div class="formgroup-inline">
+                    <p-rating [(ngModel)]="stars" [readonly]="true" [cancel]="false">
+                    </p-rating>
+                    <p>5/5</p>
+                    <p>7 months ago</p>
+                </div>
+                <p class="m-0">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                    repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
+                    perferendis esse, cupiditate neque
+                    quas!
+                </p>
+                <p>
+                    Mira
+                </p>
+            </div>
+        </p-card>
+    </div>
+    <div class="col-6">
+        <p-card header="Sauber und preiswert.">
+            <div style="height: 150px;">
+                <div class="formgroup-inline">
+                    <p-rating [(ngModel)]="stars" [readonly]="true" [cancel]="false">
+                    </p-rating>
+                    <p>4/5</p>
+                    <p>6 months ago</p>
+                </div>
+                <p class="m-0">
+                    Tolles Hotel mit sauberen, geräumigen Zimmern. reichhaltigem Frühstücksbuffet und guter
+                    Verkehrsanbindung. Genügend Parkplätze vorhanden
+                </p>
+                <p>
+                    Oliver
+                </p>
+            </div>
+        </p-card>
+    </div>
+</div>
+<div style="float: left;">
+    <p-button label="View more reviews"></p-button>
+</div>
+<div style="float: right;">
+    <p-button (click)="showDialog2()" label="Continue"></p-button>
+    <p-dialog header="Header" [(visible)]="visible2" [style]="{ width: '50vw' }" >
+        <ng-template pTemplate="header">
+        </ng-template>
+        <h4 class="text_align_center">Your current selection includes hand luggage only. Are you sure you don't want to add additional checked
+            baggage?</h4>
+        <hr>
+        <div class="grid text_align_center"  >
+            <div class="col-6">
+                <p-card header="Sauber und preiswert.">
+                    <div style="height: 200px;">
+                        <img alt="dropdown icon" height="90" src="../../assets/icons/little luggage.png">
+                        <p>55x40x23cm</p>
+                        <p>8kg Hand Luggage</p>
+                        <p-radioButton name="Luggage" value="Included" [(ngModel)]="Luggage"
+                            inputId="Luggage1"></p-radioButton>
+                        <label for="Luggage1" class="ml-2">Included</label>
+                       
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-6">
+                <p-card header="Sauber und preiswert.">
+                    <div style="height: 200px;">
+                        <img alt="dropdown icon" height="90" src="../../assets/icons/many luggage.png">
+                        <p>8kg Hand Luggage </p>
+                        <p>+ 23kg Checked baggage</p>
+                        <p-radioButton name="Luggage" value="+ 55 € per person" [(ngModel)]="Luggage"
+                            inputId="Luggage2"></p-radioButton>
+                        <label for="Luggage2" class="ml-2">+ 55 € per person</label>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+        <ng-template pTemplate="footer">
+            <p-button (click)="visible2 = false" label="Continue Booking" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-dialog>
+</div>
+<!-- 
 </body>
 
 </html> -->
