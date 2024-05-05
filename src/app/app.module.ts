@@ -41,6 +41,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { TravelExtrasComponent } from './travel-extras/travel-extras.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { PaymentComponent } from './payment/payment.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { PanelModule } from 'primeng/panel';
 
 
 @NgModule({
@@ -86,6 +88,8 @@ import { PaymentComponent } from './payment/payment.component';
     SelectButtonModule,
     RadioButtonModule,
     SidebarModule,
+    InputTextModule,
+    PanelModule
 
 
   ],

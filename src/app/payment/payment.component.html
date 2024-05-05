@@ -3,32 +3,468 @@
     <p-breadcrumb class="max-w-full" [model]="breadcrumb"></p-breadcrumb>
 </div>
 
-<div style="width: 800px;">
-    <p-card header="Redeem miles for your holiday packagetle">
-        <div class="grid">
-            <div class="col-8">
-                <p>
-                    Got miles to spend? You can redeem up to a 100% of your holiday package with your Miles & More award miles! Minimum miles credit amount 3.500
-                </p>
-                <p-button (click)="showDialog()">Login and redeem miles</p-button>
-                <p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }">
-                    <ng-template pTemplate="header">
-                        <span class="text-xl font-bold">Header Content</span>
-                    </ng-template>
+
+<div class="flex-container">
+
+    <div style="width: 820px;padding-right: 25px;">
+        <p-card header="Redeem miles for your holiday packagetle">
+            <div class="grid">
+                <div class="col-8">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Got miles to spend? You can redeem up to a 100% of your holiday package with your Miles & More
+                        award miles! Minimum miles credit amount 3.500
                     </p>
-                    <ng-template pTemplate="footer">
-                        <p-button icon="pi pi-check" (click)="visible = false" label="Ok" styleClass="p-button-text"></p-button>
-                    </ng-template>
-                </p-dialog>
+                    <p-button (click)="showDialog()">Login and redeem miles</p-button>
+                    <p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }">
+                        <ng-template pTemplate="header">
+                            <span class="text-xl font-bold">Header Content</span>
+                        </ng-template>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia deserunt mollit anim id est laborum.
+                        </p>
+                        <ng-template pTemplate="footer">
+                            <p-button icon="pi pi-check" (click)="visible = false" label="Ok"
+                                styleClass="p-button-text"></p-button>
+                        </ng-template>
+                    </p-dialog>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-3">
+                    <img alt="Card" style="float: right;"
+                        src="https://www.lufthansaholidays.com/assets/lhh/fbcfff048c42183f80e6.png" />
+                </div>
             </div>
-            <div class="col-1"></div>
-            <div class="col-3">
-                <img alt="Card" style="float: right;"
-                src="https://www.lufthansaholidays.com/assets/lhh/fbcfff048c42183f80e6.png" />
+        </p-card>
+
+
+        <h1>Your personal data</h1>
+        <p-card header="Passengers">
+            <hr style="border: 0.1px solid lightgray">
+            <h2>Adult 1</h2>
+            <div class="grid" style="padding-bottom: 20px ;">
+                <div class="col-3">
+                    <label>
+                        Salutation*
+                    </label>
+                    <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                        [showClear]="true" placeholder="salutation">
+                    </p-dropdown>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Title
+                    </label><br>
+                    <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                        [showClear]="true" placeholder="salutation">
+                    </p-dropdown>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Name(s)*
+                    </label><br>
+                    <input type="text" pInputText style="width: 150px;" placeholder="eg.John" />
+                </div>
+                <div class="col-3">
+                    <label>
+                        Surname*
+                    </label><br>
+                    <input type="text" pInputText style="width: 150px;" placeholder="eg.Smith" />
+                </div>
             </div>
+            <div class="grid" style="padding-bottom: 20px ;">
+                <div class="col-4">
+                    <label>
+                        Date of birth*
+                    </label><br>
+                    <input type="text" pInputText style="width: 200px;" placeholder="tt.mm.jjjj" />
+                </div>
+                <div class="col-3">
+                    <label>
+                        Nationality*
+                    </label><br>
+                    <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                        [showClear]="true" placeholder="select a Nationality">
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="grid" style="padding-bottom: 20px ;">
+                <div class="col-6">
+                    <label>
+                        Bonus program
+                    </label><br>
+                    <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                        [showClear]="true" placeholder="Miles & More" [style]="{'width':'350px'}">
+                    </p-dropdown>
+                </div>
+                <div class="col-4">
+                    <label>
+                        Miles & More service card no.
+                    </label><br>
+                    <input type="text" pInputText style="width: 350px;" placeholder="Enter card number" />
+                </div>
+            </div>
+            <p-checkbox [binary]="true" inputId="binary"></p-checkbox><span> This is the person being billed</span>
+
+
+
+            <hr style="border: 0.1px solid lightgray">
+            <h2>Adult 2</h2>
+            <div class="grid" style="padding-bottom: 20px ;">
+                <div class="col-3">
+                    <label>
+                        Salutation*
+                    </label>
+                    <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                        [showClear]="true" placeholder="salutation">
+                    </p-dropdown>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Title
+                    </label><br>
+                    <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                        [showClear]="true" placeholder="salutation">
+                    </p-dropdown>
+                </div>
+                <div class="col-3">
+                    <label>
+                        Name(s)*
+                    </label><br>
+                    <input type="text" pInputText style="width: 150px;" placeholder="eg.John" />
+                </div>
+                <div class="col-3">
+                    <label>
+                        Surname*
+                    </label><br>
+                    <input type="text" pInputText style="width: 150px;" placeholder="eg.Smith" />
+                </div>
+            </div>
+            <div class="grid" style="padding-bottom: 20px ;">
+                <div class="col-4">
+                    <label>
+                        Date of birth*
+                    </label><br>
+                    <input type="text" pInputText style="width: 200px;" placeholder="tt.mm.jjjj" />
+                </div>
+                <div class="col-3">
+                    <label>
+                        Nationality*
+                    </label><br>
+                    <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                        [showClear]="true" placeholder="select a Nationality">
+                    </p-dropdown>
+                </div>
+            </div>
+            <div class="grid" style="padding-bottom: 20px ;">
+                <div class="col-6">
+                    <label>
+                        Bonus program
+                    </label><br>
+                    <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                        [showClear]="true" placeholder="Miles & More" [style]="{'width':'350px'}">
+                    </p-dropdown>
+                </div>
+                <div class="col-4">
+                    <label>
+                        Miles & More service card no.
+                    </label><br>
+                    <input type="text" pInputText style="width: 350px;" placeholder="Enter card number" />
+                </div>
+            </div>
+        </p-card>
+        <br>
+
+        <p-card header="Contact details">
+            <hr style="border: 0.1px solid lightgray">
+            <br>
+            <div class="grid" style="padding-bottom: 20px ;">
+                <div class="col-4">
+                    <label>
+                        E-Mail*
+                    </label><br>
+                    <input type="text" pInputText style="width: 250px;" placeholder="Confirm E-mail" />
+                </div>
+                <div class="col-4">
+                    <label>
+                        Confirm E-Mail*
+                    </label><br>
+                    <input type="text" pInputText style="width: 250px;" placeholder="Confirm your E-mail Address" />
+                </div>
+                <div class="col-4">
+                    <label>
+                        Phone*
+                    </label><br>
+                    <input type="text" pInputText style="width: 250px;" placeholder="Inform you phone no." />
+                </div>
+                <div class="grid">
+                    <div class="col-12" style="padding: 15px;">
+                        <span>We use your e-mail address and phone number for sending the booking confirmation, the
+                            travel
+                            documents as well as other information, e.g.short-term changes by the airline and for the
+                            newsletter, from which you can unsubscribe at any time.</span>
+                    </div>
+                </div>
+            </div>
+            <p-checkbox [binary]="true" inputId="binary"></p-checkbox><span> This is the person being billed</span>
+        </p-card>
+
+        <div class="grid" style="padding-bottom: 20px ;padding-top:20px;">
+            <p-panel [style]="{'font-size':'1.5rem'}" header="Redeem voucher" [toggleable]="true">
+                <div class="grid">
+                    <div class="col-6">
+                        <p style="font-size: 1rem;">
+                            If you have a voucher that you would like to redeem, please enter its code here.
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-inputgroup">
+                            <input type="text" pInputText placeholder="Voucher Code" />
+                            <button type="button" styleClass="p-button-warn">Redeem</button>
+                        </div>
+                    </div>
+                </div>
+            </p-panel>
         </div>
-    </p-card>
+        <div style="padding-bottom: 20px ;">
+            <p-card header="Travel insurance">
+                <span>With HanseMerkur travel insurance products, you are optimally covered.</span>
+                <br> <br>
+                <span>If you have to cancel your trip before it starts (e.g. due to illness or a change of job), travel
+                    cancellation insurance will take effect. If something happens to you or your relatives at home while
+                    you
+                    are travelling, travel cancellation insurance protects you from high cancellation costs and even
+                    covers
+                    the full cost of the trip if something happens during the first half of the trip (up to a maximum of
+                    8
+                    days).</span>
+                <br> <br>
+                <span>The Premium travel insurance package supplements the Basic package and protects you against high
+                    costs
+                    if you have to see a doctor on holiday, need to be repatriated or lose your luggage, for example.
+                </span>
+                <br>
+                <br>
+                <img width="770px" src="../../assets/icons/insurance.png">
+            </p-card>
+        </div>
+        <div style="padding-bottom: 20px ;">
+            <p-card header="Billing address">
+                <hr style="border: 0.1px solid lightgray">
+                <div class="grid" style="padding-bottom: 20px ;">
+                    <div class="col-3">
+                        <label>
+                            Salutation*
+                        </label>
+                        <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                            [showClear]="true" placeholder="salutation">
+                        </p-dropdown>
+                    </div>
+                    <div class="col-3">
+                        <label>
+                            Title
+                        </label><br>
+                        <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                            [showClear]="true" placeholder="salutation">
+                        </p-dropdown>
+                    </div>
+                    <div class="col-3">
+                        <label>
+                            Name(s)*
+                        </label><br>
+                        <input type="text" pInputText style="width: 150px;" placeholder="eg.John" />
+                    </div>
+                    <div class="col-3">
+                        <label>
+                            Surname*
+                        </label><br>
+                        <input type="text" pInputText style="width: 150px;" placeholder="eg.Smith" />
+                    </div>
+                </div>
+                <div class="grid" style="padding-bottom: 20px ;">
+                    <div class="col-3">
+                        <label>
+                            Street & Nr.*
+                        </label><br>
+                        <input type="text" pInputText style="width: 180px;" placeholder="eg.Sunshinealley" />
+                    </div>
+                    <div class="col-2">
+                        <label>
+                            Post code*
+                        </label><br>
+                        <input type="text" pInputText style="width: 110px;" placeholder="eg.12345" />
+                    </div>
+                    <div class="col-4">
+                        <label>
+                            City*
+                        </label><br>
+                        <input type="text" pInputText style="width: 200px;" placeholder="eg.Lodon" />
+                    </div>
+                    <div class="col-3">
+                        <label>
+                            Post code*
+                        </label><br>
+                        <p-dropdown [options]="salutations" [(ngModel)]="selectedSalutation" optionLabel="salutation"
+                            [showClear]="true" placeholder="eg.12345">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div style="padding-bottom: 20px ;">
+            <p-card header="Billing address">
+                <hr style="border: 0.1px solid rgb(240, 236, 236)">
+                <span>Your payment data will always be processed by us with the highest security standards</span>
+                <hr style=" border: 0.1px solid rgb(240, 236, 236)">
+                <div style="font-size: 1.5rem;font-weight: bold;">
+                    <div class="flex align-items-center">
+                        <p-radioButton name="payment" value="Credit Card" [(ngModel)]="payment"
+                            inputId="Credit Card"></p-radioButton>
+                        <label for="Credit Card" class="ml-3">Credit Card</label>
+                        <img width="200px" src="../../assets/icons/credit card.png">
+                    </div>
+                    <hr style="border: 0.1px solid rgb(240, 236, 236)">
+                    <div class="flex align-items-center">
+                        <p-radioButton name="payment" value="PayPal" [(ngModel)]="payment"
+                            inputId="PayPal"></p-radioButton>
+                        <label for="PayPal" class="ml-3">PayPal</label>
+                        <img width="90px" src="../../assets/icons/paypal.png">
+                    </div>
+                    <hr style="border: 0.1px solid rgb(240, 236, 236)">
+                    <div class="flex align-items-center">
+                        <p-radioButton name="payment" value="Award miles (Miles & More)" [(ngModel)]="payment"
+                            inputId="Award miles (Miles & More)"></p-radioButton>
+                        <label for="Award miles (Miles & More)" class="ml-3">Award miles (Miles & More)</label>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div style="padding-bottom: 20px ;">
+            <p-card header="Confirmation">
+                <hr style="border: 0.1px solid rgb(240, 236, 236)">
+                <span style="color: red;">Please confirm</span><br><br>
+                <p-checkbox formControlName="checkConfirm" value="b" inputId="b"></p-checkbox>
+                <label for="b">I was able to find out about the general terms and conditions of the tour operator
+                    holidays.ch GmbH and the agency </label>
+                <br> <br>
+                <p-checkbox formControlName="checkConfirm" value="a" inputId="a"></p-checkbox>
+                <label for="a">I was informed about the vaccination and entry requirements and was able to read the
+                    contents of the EU form regarding package travellers. </label>
+            </p-card>
+        </div>
+        <div style="float: right;">
+            <button style="width: 400px;" pButton pRipple label="Pay Now" class="p-button-success"></button>
+        </div>
+    </div>
+
+    <div class="card" style="width: 350px;" >
+            <h2>Your booking</h2>
+            <hr style="border: 0.1px solid rgb(240, 236, 236)">
+            <h3>Accommodation details</h3>
+            <p-card>
+                <ng-template pTemplate="header">
+                    <img alt="Card" src="	https://www.lufthansaholidays.com/assets/lhh/ed6c712b65f9b72adc67.jpg" />
+                </ng-template>
+                <h3>Austria Trend Hotel Salzburg Messe</h3>
+                <p-rating [(ngModel)]="stars" [readonly]="true" [cancel]="false">
+                </p-rating>
+                <hr style="border: 0.1px solid rgb(240, 236, 236)">
+                <div class="grid" style="font-size: 0.9rem;">
+                    <div class="col-6" style="font-weight: bold;">
+                        Arrival at the hotel
+                    </div>
+                    <div class="col-6">
+                        04.01.2025, 3 nights
+                    </div>
+                    <div class="col-6" style="font-weight: bold;">
+                        Travellers
+                    </div>
+                    <div class="col-6">
+                        2 adults
+                    </div>
+                    <div class="col-6" style="font-weight: bold;">
+                        Room type
+                    </div>
+                    <div class="col-6">
+                        Doppelzimmer (1 oder 2 Betten) KLASSISCHES ZIMMER
+                    </div>
+                    <div class="col-6" style="font-weight: bold;">
+                        Board type
+                    </div>
+                    <div class="col-6">
+                        RO
+                    </div>
+                </div>
+            </p-card>
+            <h3>Flight details</h3>
+            <p-card>
+                <ng-template pTemplate="header">
+                    <h3>&nbsp;&nbsp; Saturday, 04.01.2025</h3>
+                    <hr style="border: 0.1px solid rgb(240, 236, 236)">
+                </ng-template>
+                <div class="grid">
+                    <div class="col-1"> <img alt="Card" width="20px" src="../../assets/icons/Eurowing.png" /></div>
+                    <div class="col-5">
+                        Dusseldorf<br>DUS &nbsp;06:05</div>
+                    <div class="col-6"> Salzburg<br>
+                        <i class="pi pi-arrow-right"></i>SZG &nbsp;07:20
+                    </div>
+                    <div><br>Eurowings EW9716, economy<br>
+                        <i class=" pi pi-briefcase"></i> 8kg carry-on baggage included
+                    </div>
+                </div>
+            </p-card>
+            <p-card>
+                <ng-template pTemplate="header">
+                    <h3>&nbsp;&nbsp;Tuesday, 07.01.2025</h3>
+                    <hr style="border: 0.1px solid rgb(240, 236, 236)">
+                </ng-template>
+                <div class="grid">
+                    <div class="col-1"> <img alt="Card" width="20px" src="../../assets/icons/Eurowing.png" /></div>
+                    <div class="col-5">
+                        Dusseldorf<br>DUS &nbsp;06:05</div>
+                    <div class="col-6"> Salzburg<br>
+                        <i class="pi pi-arrow-right"></i>SZG &nbsp;07:20
+                    </div>
+                    <div><br>Eurowings EW9716, economy<br>
+                        <i class=" pi pi-briefcase"></i> 8kg carry-on baggage included
+                    </div>
+                </div>
+            </p-card>
+            <h3>Summary</h3>
+            <p-card>
+                <div class="grid">
+                    <div class="col-9">
+                        Base price
+                    </div>
+                    <div class="col-3">
+                        592 €
+                    </div>
+                    <div class="col-9">
+                        In destination assistance
+                    </div>
+                    <div class="col-3">
+                        free
+                    </div>
+                    <div class="col-9">
+                        Supplier failure insurance
+                    </div>
+                    <div class="col-3">
+                        free
+                    </div>
+                </div>
+            </p-card>
+            <h2>Total price &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 592 €</h2>
+            <p-card>
+                <div style="font-size: 0.9rem;">
+                <div>Only 237 € deposit</div><br>
+                <div style="font-weight: bold;">We only charge a deposit of 40% of the total price for now. The final charge is being made 28 days
+                    before departure.</div>
+                    </div>
+            </p-card>
+    </div>
 </div>
