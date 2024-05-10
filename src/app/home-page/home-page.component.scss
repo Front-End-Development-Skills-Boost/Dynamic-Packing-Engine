@@ -17,3 +17,50 @@
     transform: translate(-50%, -50%);
     color: #071d49;
 }
+
+.Teaser_contentWrapper__foZ5 {
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .6) 30%, rgba(0, 0, 0, .8));
+    bottom: 0;
+    left: 0;
+    padding: 20px 10px 10px;
+    position: absolute;
+    right: 0;
+    color: #fff;
+    font-family: LufthansaTextWebBETA-Bold, Verdana, sans-serif;
+    font-size: 14px;
+    margin: 0 0 5px;
+}
+
+.TeaserDestination_offerWrapper_sIsrJ {
+    background: linear-gradient(90deg, #fff 0, hsla(0, 0%, 100%, .8) 75%, hsla(0, 0%, 100%, 0));
+    color: #071d49;
+    left: 0;
+    max-width: 90%;
+    min-width: 300px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity .3s ease-in-out;
+
+    color: #071d49;
+    display: block;
+    font-family: LufthansaHeadWebBETA-Bold, Verdana, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 1.1;
+    margin: 0 0 10px;
+}
+
+.btn-default {
+    background: linear-gradient(0deg, #dcdcdc, #fff);
+    border: 1px solid #b4b4b4;
+    border-radius: 2px;
+    color: #2c357f;
+}
+.TeaserSection_title_VOALZ {
+    color: #071d49;
+    display: inline-block;
+    font-family: LufthansaHeadWebBETA-Bold, Verdana, sans-serif;
+    font-size:34px;
+}

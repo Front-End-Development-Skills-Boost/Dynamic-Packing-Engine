@@ -2,13 +2,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MegaMenuItem } from 'primeng/api';
 import { PhotoService } from '../../../service/photoservice';
-import { DepartureAirportService } from '../../../service/departureAirportService';
-import { ItemsService } from '../../../service/itemsService';
 import { SelectItemGroup } from 'primeng/api';
 import { DestinationService } from 'service/destinationService';
 
 
 interface City {
+  name: string,
+  code: string
+}
+interface Country {
   name: string,
   code: string
 }
@@ -24,8 +26,10 @@ export class HomePageComponent implements OnInit {
   images: any[] | undefined;
   responsiveOptions: any[] | undefined;
   //departureAirport
-  nodes!: any[];
-  selectedNodes: any;
+  countries!: Country[];
+  selectedCountry!: Country;
+  cities!: City[];
+  selectedCity!: City;
   //destination and hotel
   groupedCities!: SelectItemGroup[];
   selectedCities!: City[];
@@ -39,15 +43,35 @@ export class HomePageComponent implements OnInit {
 
 
 
-  constructor(private destinationService: DestinationService, private photoService: PhotoService, private departureAirportService: DepartureAirportService) {
-    //departureAirport
-    this.departureAirportService.getFiles().then((files) => (this.nodes = files));
+  constructor(private destinationService: DestinationService, private photoService: PhotoService) {
+   
     //destination and hotel
     this.destinationService.getDestinations().then((destinations) => (this.groupedCities = destinations));
 
   }
 
   ngOnInit() {
+    //機加酒選單
+    // departure airport
+    this.countries = [
+      { name: 'Australia', code: 'AU' },
+      { name: 'Brazil', code: 'BR' },
+      { name: 'China', code: 'CN' },
+      { name: 'Egypt', code: 'EG' },
+      { name: 'France', code: 'FR' },
+      { name: 'Germany', code: 'DE' },
+      { name: 'India', code: 'IN' },
+      { name: 'Japan', code: 'JP' },
+      { name: 'Spain', code: 'ES' },
+      { name: 'United States', code: 'US' }
+  ];
+    this.cities = [
+      { name: 'New York', code: 'NY' },
+      { name: 'Rome', code: 'RM' },
+      { name: 'London', code: 'LDN' },
+      { name: 'Istanbul', code: 'IST' },
+      { name: 'Paris', code: 'PRS' }
+  ];
     // 圖片旋轉
     this.photoService.getImages().then((images) => {
       this.images = images;
