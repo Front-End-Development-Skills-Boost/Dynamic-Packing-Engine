@@ -15,7 +15,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { GalleriaModule } from 'primeng/galleria';
 import { PhotoService } from 'service/photoservice';
-import { DepartureAirportService } from 'service/departureAirportService';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ItemsService } from 'service/itemsService';
 import { DestinationService } from 'service/destinationService';
@@ -43,7 +42,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { PaymentComponent } from './payment/payment.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
-
+import { ListboxModule } from 'primeng/listbox';
 
 @NgModule({
   declarations: [
@@ -89,11 +88,12 @@ import { PanelModule } from 'primeng/panel';
     RadioButtonModule,
     SidebarModule,
     InputTextModule,
-    PanelModule
+    PanelModule,
+    ListboxModule
 
 
   ],
-  providers: [DestinationService, ItemsService, PhotoService, DepartureAirportService, ProductService],
+  providers: [DestinationService, ItemsService, PhotoService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
